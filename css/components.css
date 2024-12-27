@@ -1,0 +1,232 @@
+.hero {
+}
+
+.main-header {
+  padding: 2rem 0;
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      .nav-item {
+      }
+      .nav-link {
+        position: relative;
+        padding: 10px 10px;
+        text-transform: uppercase;
+        font-weight: var(--fw-medium);
+        &:hover {
+          text-decoration: none;
+          background-color: var(--clr-accent);
+        }
+      }
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  svg {
+    aspect-ratio: 1;
+    height: 2rem;
+    width: 2rem;
+    path {
+      fill: var(--clr-green);
+    }
+  }
+  .brand-name {
+    font-size: var(--fs-400);
+    color: var(--clr-green);
+    text-transform: uppercase;
+    font-weight: var(--fw-600);
+    line-height: 0.9;
+    width: min-content; /* Unsure about this one. Will break for now */
+  }
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  .tag {
+    background-color: red;
+    border-radius: 10rem;
+    padding: 10px;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+}
+.plant-cards {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  list-style: none;
+  gap: var(--gap);
+  padding: var(--space-l) 0;
+
+  .plant-card {
+    position: relative;
+    display: grid;
+    gap: var(--gap);
+    overflow: hidden;
+    background-color: var(--clr-neutral-100);
+    grid-column: 12 span;
+    padding: 1rem;
+    min-width: 100%;
+
+    box-shadow: var(--border-shadow);
+    > img {
+      position: relative;
+      aspect-ratio: 3/4;
+      min-width: 100%;
+      z-index: 1;
+      &::before {
+        content: 'sffss';
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: red;
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+      }
+    }
+    .author {
+      display: flex;
+      align-items: center;
+    }
+    .author img {
+      aspect-ratio: 1;
+      max-width: 140px !important;
+    }
+    .author-info {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.call-to-action {
+  background-color: orange;
+  text-align: center;
+  padding: var(--space-xl) 0;
+  .wrapper {
+    display: grid;
+    grid-template-areas: 'image' 'content';
+    grid-template-rows: auto;
+    justify-content: flex-end;
+
+    gap: 10px;
+    background-color: rgb(174, 255, 0);
+  }
+
+  .image {
+    grid-area: image;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    border-radius: 100%;
+    aspect-ratio: 1;
+  }
+  .content {
+    grid-area: content;
+    display: grid;
+    gap: var(--gap);
+    align-items: start;
+    align-content: center;
+  }
+  .btn {
+    margin-left: auto;
+  }
+}
+
+.btn {
+  line-height: 1;
+  padding: var(--space-2xs) var(--space-xs);
+  background-color: var(--clr-neutral-100);
+  border-radius: var(--btn-border-radius);
+}
+
+footer {
+  background-color: var(--clr-accent);
+  color: var(--clr-neutral-100);
+  padding: var(--space-xl) 0;
+  .logo {
+    svg {
+      path {
+        fill: var(--clr-neutral-100);
+      }
+    }
+    .brand-name {
+      color: var(--clr-neutral-100);
+    }
+  }
+  .wrapper {
+    display: grid;
+    grid-template-areas: 'main' 'nav';
+    grid-auto-rows: auto;
+    .content {
+      grid-area: main;
+      background-color: red;
+    }
+    address ul {
+      list-style: none;
+    }
+    nav {
+      grid-area: nav;
+      display: none;
+      color: red;
+      ul {
+        list-style: none;
+        .nav-link {
+          color: var(--clr-neutral-100);
+        }
+      }
+    }
+  }
+}
+
+/*icons */
+
+.plant {
+}
+
+@media (min-width: 600px) {
+  .plant-cards .plant-card {
+    grid-column: 6 span;
+  }
+  .call-to-action {
+    text-align: initial;
+    .wrapper {
+      grid-template-areas: 'image content';
+      grid-template-columns: 1fr 2fr;
+      background-color: pink;
+      /* grid-template-columns: [image-start] 1fr [image-end content-start] 2fr [content-end]; */
+      .content {
+        justify-items: flex-start;
+      }
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .plant-cards .plant-card {
+    grid-column: 3 span;
+  }
+  footer {
+    .wrapper {
+      grid-template-areas: 'main nav';
+      nav {
+        display: initial;
+      }
+    }
+  }
+}

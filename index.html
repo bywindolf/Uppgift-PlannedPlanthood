@@ -6,35 +6,40 @@
     <link rel="stylesheet" href="css/style.css" />
     <title>Planned Planthood</title>
   </head>
-  <body>
-    <header>
-      <h1>Planned Planthood</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="#" class="nav-link">Hem</a>
-          </li>
-          <li>
-            <a href="#" class="nav-link">Historik</a>
-          </li>
+  <body class="">
+    <header class="main-header content-grid">
+      <div class="wrapper">
+        <div class="logo">
+          <img src="assets/images/logo.svg" />
+          <span class="brand-name">Planned Plenthood</span>
+        </div>
+        <nav>
+          <ul>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Hem</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Historik</a>
+            </li>
 
-          <li>
-            <a href="#" class="nav-link">Tips</a>
-          </li>
-          <li>
-            <a href="#" class="nav-link">Kontakt</a>
-          </li>
-        </ul>
-      </nav>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Tips</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Kontakt</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
-    <main>
-      <section>
+    <main class="content-grid">
+      <section class="hero full-width">
         <h2>Uppskattade växter</h2>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique, corporis ipsum.</p>
       </section>
 
-      <section>
-        Anmäl dig till vårt nyhetsbrev så du inte missar en utsådd!
+      <section class="newsletter full-width">
+        <p>Anmäl dig till vårt nyhetsbrev så du inte missar en utsådd!</p>
         <form>
           <input type="email" name="email" />
           <button type="submit" name="submit">Skicka</button>
@@ -42,51 +47,66 @@
         <div class=""></div>
       </section>
 
-      <section>
-        <ul>
-          <li></li>
-        </ul>
+      <section class="plants">
+        <!-- Childs of UL is genereated with JS -->
+        <ul class="plant-cards"></ul>
       </section>
 
-      <section>
-        <h2>Våra tidigare odlingar</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ratione quia eos pariatur deserunt
-          veritatis. Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam
-          quaerat doloribus? Planterade plantor
-        </p>
-        <a href="">Planterade plantor</a>
+      <section class="call-to-action full-width">
+        <div class="wrapper">
+          <div class="image">
+            <!-- We will use function in scripts.js to inline our image.svg-->
+            <img src="assets/images/icon-seedling.svg" />
+          </div>
+          <div class="content">
+            <h2>Våra tidigare odlingar</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ratione quia eos pariatur deserunt
+              veritatis. Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam
+              quaerat doloribus? Planterade plantor
+            </p>
+            <a class="btn btn-primary" href="">Planterade plantor</a>
+          </div>
+        </div>
       </section>
     </main>
-    <footer>
-      <div class="logo"></div>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque, veniam ducimus aut sint atque ullam alias
-        perspiciatis fuga. Consequuntur nesciunt ea corrupti aperiam fugit inventore ratione earum. Iure, eius
-        molestias?
-      </p>
-      <address>
-        <ul>
-          <li><span class="icon"></span>Telefon: 020-1234567</li>
-          <li><span class="icon"></span><a href="mailto:info@plannedplant.com">info@plannedplant.com</a></li>
-        </ul>
-      </address>
-      <nav>
-        <ul>
-          <li>
-            <a href="#" class="nav-link">Hem</a>
-          </li>
-          <li>
-            <a href="#" class="nav-link">Historik</a>
-          </li>
-          <li>
-            <a href="#" class="nav-link">Tips</a>
-          </li>
-          <li>
-            <a href="#" class="nav-link">Kontakt</a>
-          </li>
-        </ul>
-      </nav>
+    <footer class="main-footer content-grid">
+      <div class="wrapper">
+        <div class="content">
+          <div class="logo">
+            <img src="assets/images/logo.svg" />
+            <span class="brand-name">Planned Plenthood</span>
+          </div>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque, veniam ducimus aut sint atque ullam alias
+            perspiciatis fuga. Consequuntur nesciunt ea corrupti aperiam fugit inventore ratione earum. Iure, eius
+            molestias?
+          </p>
+          <address>
+            <ul>
+              <li><span class="icon"></span>Telefon: 020-1234567</li>
+              <li><span class="icon"></span><a href="mailto:info@plannedplant.com">info@plannedplant.com</a></li>
+            </ul>
+          </address>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <a href="#" class="nav-link">Hem</a>
+            </li>
+            <li>
+              <a href="#" class="nav-link">Historik</a>
+            </li>
+            <li>
+              <a href="#" class="nav-link">Tips</a>
+            </li>
+            <li>
+              <a href="#" class="nav-link">Kontakt</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </footer>
   </body>
+  <script src="js/scripts.js"></script>
 </html>
