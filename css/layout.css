@@ -28,10 +28,3 @@
   display: grid;
   grid-template-columns: inherit;
 }
-
-.hero {
-  background-color: yellow;
-}
-.newsletter {
-  background-color: orange;
-}
