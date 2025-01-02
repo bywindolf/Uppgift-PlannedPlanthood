@@ -4,10 +4,9 @@ function populateCards() {
   const plants = [
     {
       image: 'https://picsum.photos/seed/picsum/200/300',
-
       title: 'Gurka',
       description: 'A tropical plant that thrives in bright, indirect light.',
-      tags: ['Indoor', 'Tropical'],
+      tags: ['Blommor', 'Ätbart', 'Grönska'],
       author: {
         name: 'Jane Doe',
         avatar: 'https://avatar.iran.liara.run/public/1',
@@ -18,7 +17,7 @@ function populateCards() {
       image: 'https://picsum.photos/seed/picsum/200/300',
       title: 'Tomat',
       description: 'Low-maintenance plant perfect for low light conditions.',
-      tags: ['Low Light', 'Easy Care'],
+      tags: ['Solälskande', 'Lättodlat', 'Ätbart'],
       author: {
         name: 'John Smith',
         avatar: 'https://avatar.iran.liara.run/public/2',
@@ -29,7 +28,7 @@ function populateCards() {
       image: 'https://picsum.photos/seed/picsum/200/300',
       title: 'Pelargon',
       description: 'A popular houseplant known for its large, violin-shaped leaves.',
-      tags: ['Bright Light', 'Tree-like'],
+      tags: ['Dekorativ', 'Färgstark', 'Tålig', 'Blommor'],
       author: {
         name: 'Alice Brown',
         avatar: 'https://avatar.iran.liara.run/public/3',
@@ -40,7 +39,7 @@ function populateCards() {
       image: 'https://picsum.photos/seed/picsum/200/300',
       title: 'Basilika',
       description: 'A popular houseplant known for its large, violin-shaped leaves.',
-      tags: ['Bright Light', 'Tree-like'],
+      tags: ['Kryddor', 'Doftande', 'Solälskande'],
       author: {
         name: 'Alice Brown',
         avatar: 'https://avatar.iran.liara.run/public/4',
@@ -51,7 +50,7 @@ function populateCards() {
       image: 'https://picsum.photos/seed/picsum/200/300',
       title: 'Sallad',
       description: 'A popular houseplant known for its large, violin-shaped leaves.',
-      tags: ['Bright Light', 'Tree-like'],
+      tags: ['Snabbväxande', 'Ätbart', 'Grönska'],
       author: {
         name: 'Alice Brown',
         avatar: 'https://avatar.iran.liara.run/public/5',
@@ -59,9 +58,10 @@ function populateCards() {
       },
     },
     {
+      image: 'https://picsum.photos/seed/picsum/200/300',
       title: 'Ormbunke',
       description: 'A popular houseplant known for its large, violin-shaped leaves.',
-      tags: ['Bright Light', 'Tree-like'],
+      tags: ['Luftfuktande', 'Grönska', 'Dekorativ'],
       author: {
         name: 'Alice Brown',
         avatar: 'https://avatar.iran.liara.run/public/6',
@@ -73,64 +73,72 @@ function populateCards() {
   // Select the <ul> with the class "plant-cards"
   const ul = document.querySelector('.plant-cards');
 
-  // Iterate through the data and create the structure for each <li>
-  plants.forEach((plant) => {
-    const li = document.createElement('li');
-    li.classList.add('plant-card'); // Add a class to the <li>
+  // Function to create and append plant cards
+  const appendPlantCards = () => {
+    plants.forEach((plant) => {
+      const li = document.createElement('li');
+      li.classList.add('plant-card'); // Add a class to the <li>
 
-    const image = document.createElement('img');
-    image.src = plant.image;
-    image.style.width = '200px';
+      const figure = document.createElement('figure');
 
-    // Title
-    const title = document.createElement('h3');
-    title.textContent = plant.title;
+      const image = document.createElement('img');
+      image.src = plant.image;
+      image.style.width = '200px';
+      figure.appendChild(image);
 
-    // Description
-    const description = document.createElement('p');
-    description.textContent = plant.description;
+      // Title
+      const title = document.createElement('h3');
+      title.textContent = plant.title;
 
-    // Tags
-    const tags = document.createElement('div');
-    tags.classList.add('tags');
-    tags.innerHTML = plant.tags.map((tag) => `<span class="tag">${tag}</span>`).join(' ');
+      // Description
+      const description = document.createElement('p');
+      description.textContent = plant.description;
 
-    // Author Section
-    const author = document.createElement('div');
-    author.classList.add('author');
+      // Tags
+      const tags = document.createElement('div');
+      tags.classList.add('tags');
+      tags.innerHTML = plant.tags.map((tag) => `<span class="tag" data-tag="${tag}">${tag}</span>`).join(' ');
 
-    const avatar = document.createElement('img');
-    avatar.src = plant.author.avatar;
-    avatar.alt = `${plant.author.name}'s avatar`;
-    avatar.style.width = '40px';
+      // Author Section
+      const author = document.createElement('div');
+      author.classList.add('author');
 
-    const authorInfo = document.createElement('div');
-    authorInfo.classList.add('author-info');
+      const avatar = document.createElement('img');
+      avatar.src = plant.author.avatar;
+      avatar.alt = `${plant.author.name}'s avatar`;
 
-    const authorName = document.createElement('span');
-    authorName.textContent = plant.author.name;
+      const authorInfo = document.createElement('div');
+      authorInfo.classList.add('author-info');
 
-    const authorDate = document.createElement('span');
-    authorDate.textContent = `Published on: ${plant.author.date}`;
-    authorDate.classList.add('author-date');
+      const authorName = document.createElement('span');
+      authorName.textContent = plant.author.name;
 
-    authorInfo.appendChild(authorName);
-    authorInfo.appendChild(authorDate);
-    author.appendChild(avatar);
-    author.appendChild(authorInfo);
+      const authorDate = document.createElement('span');
+      authorDate.textContent = ` ${plant.author.date}`;
+      authorDate.classList.add('author-date');
 
-    // Append all elements to the <li>
-    li.appendChild(image);
+      authorInfo.appendChild(authorName);
+      authorInfo.appendChild(authorDate);
+      author.appendChild(avatar);
+      author.appendChild(authorInfo);
 
-    li.appendChild(title);
-    li.appendChild(tags);
-    li.appendChild(description);
-    li.appendChild(author);
+      // Append all elements to the <li>
+      li.appendChild(figure);
+      li.appendChild(tags);
+      li.appendChild(title);
+      li.appendChild(description);
+      li.appendChild(author);
 
-    // Append the <li> to the <ul>
-    ul.appendChild(li);
-  });
+      // Append the <li> to the <ul>
+      ul.appendChild(li);
+    });
+  };
+
+  // Call the function twice to duplicate the <li> elements
+  appendPlantCards();
+  appendPlantCards();
 }
+
 populateCards();
 
 function inlineAllSVGImages() {

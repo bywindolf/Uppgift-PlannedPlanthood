@@ -5,7 +5,7 @@ section {
 .hero {
   justify-items: center;
   text-align: center;
-  gap: 20px;
+  row-gap: 20px;
 }
 
 .image-grid {
@@ -13,25 +13,15 @@ section {
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
   background-color: var(--clr-neutral-100);
-  padding: 1rem;
+  padding: var(--space-s);
   box-shadow: var(--border-shadow);
-
+  width: 100%;
   img {
     aspect-ratio: 1;
     object-fit: cover;
-    width: 100%;
+    min-width: 100%;
     height: 100%;
-    grid-column: 2 span;
-    &:nth-child(1) {
-      grid-column: 2 span;
-      grid-row: 2 span;
-      background-color: yellow;
-    }
-    &:nth-child(2),
-    &:nth-child(3) {
-      grid-column: 1 span;
-      height: 100%;
-    }
+    grid-column: 3 span;
   }
 }
 
@@ -88,19 +78,58 @@ section {
 
 .tags {
   display: flex;
-  gap: 10px;
+  gap: var(--space-3xs);
   align-items: center;
   flex-wrap: wrap;
   .tag {
-    font-size: var(--fs-200);
+    font-size: var(--fs-100);
     font-weight: var(--fw-medium);
-    background-color: red;
+    color: var(--clr-neutral-100);
+    background-color: blue;
     border-radius: 10rem;
-    padding: 10px;
+    padding: var(--space-2xs) var(--space-xs);
     text-transform: uppercase;
     line-height: 1;
+    border: transparent;
+    &[data-tag='Blommor'] {
+      background-color: var(--clr-flower);
+    }
+    &[data-tag='Grönska'] {
+      background-color: var(--clr-green);
+    }
+    &[data-tag='Ätbart'] {
+      background-color: var(--clr-edible);
+    }
+    &[data-tag='Solälskande'] {
+      background-color: var(--clr-sunloving);
+    }
+    &[data-tag='Tålig'] {
+      background-color: var(--clr-robust);
+    }
+    &[data-tag='Dekorativ'] {
+      background-color: var(--clr-decorative);
+    }
+    &[data-tag='Färgstark'] {
+      background-color: var(--clr-colorful);
+    }
+    &[data-tag='Lättodlat'] {
+      background-color: var(--clr-easy);
+    }
+    &[data-tag='Kryddor'] {
+      background-color: var(--clr-air);
+    }
+    &[data-tag='Snabbväxande'] {
+      background-color: var(--clr-fast);
+    }
+    &[data-tag='Luftfuktande'] {
+      background-color: var(--clr-air);
+    }
+    &[data-tag='Doftande'] {
+      background-color: var(--clr-fragrant);
+    }
   }
 }
+
 .plant-cards {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -110,37 +139,51 @@ section {
   .plant-card {
     position: relative;
     display: grid;
+    justify-content: flex-start;
     gap: var(--gap);
     overflow: hidden;
     background-color: var(--clr-neutral-100);
     grid-column: 12 span;
-    padding: 1rem;
+    padding: var(--space-s);
     min-width: 100%;
 
     box-shadow: var(--border-shadow);
-    > img {
+    > figure {
       position: relative;
-      aspect-ratio: 3/4;
+      aspect-ratio: 4/3;
       min-width: 100%;
       z-index: 1;
+      img {
+        min-width: 100%;
+        height: auto;
+      }
       &::before {
-        content: 'sffss';
+        content: '';
         position: absolute;
         left: 0;
         top: 0;
-        background-color: red;
+        /* background-color: red; */
+        background-image: url(/assets/images/icon-seedling-2.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 50%;
+        opacity: 0.5;
         height: 100%;
         width: 100%;
-        z-index: 2;
+        z-index: 20;
       }
     }
     .author {
       display: flex;
       align-items: center;
+      gap: var(--space-xs);
+      font-size: var(--fs-100);
     }
     .author img {
       aspect-ratio: 1;
-      max-width: 140px !important;
+      width: var(--fs-900);
+      border: 1px var(--clr-neutral-400) solid;
+      border-radius: var(--btn-border-radius);
     }
     .author-info {
       display: flex;
@@ -190,11 +233,17 @@ section {
 
 .btn {
   line-height: 1;
-  padding: var(--space-2xs) var(--space-xs);
+  font-size: var(--fs-300);
+  padding: var(--space-2xs) var(--space-s);
   color: var(--clr-neutral-100);
   background-color: var(--clr-accent);
   border-radius: var(--btn-border-radius);
+  min-height: var(--fluid-30-36);
   border: transparent;
+  &:hover {
+    text-decoration: none;
+    background-color: red;
+  }
 }
 .btn-primary {
   background-color: var(--clr-accent);
@@ -207,7 +256,7 @@ section {
     display: flex;
     align-items: center;
     padding: var(--space-3xs);
-    border-radius: 20px;
+    border-radius: var(--btn-border-radius);
     border: 1px var(--clr-neutral-800) solid;
     gap: 20px;
     input {
@@ -228,7 +277,12 @@ section {
 footer {
   background-color: var(--clr-accent);
   color: var(--clr-neutral-100);
-  padding: var(--space-xl) 0;
+  padding: var(--space-2xl) 0 var(--space-xl) 0;
+  grid-template-columns: repeat(12, 1fr);
+
+  a {
+    color: var(--clr-neutral-100);
+  }
   .logo {
     svg {
       path {
@@ -243,11 +297,21 @@ footer {
     display: grid;
     grid-template-areas: 'main' 'nav';
     grid-auto-rows: auto;
+    gap: var(--space-xl);
+
     .content {
+      display: grid;
       grid-area: main;
+      gap: 10px;
     }
     address ul {
       list-style: none;
+      li {
+        display: flex;
+        gap: 10px;
+
+        align-items: center;
+      }
     }
     nav {
       grid-area: nav;
@@ -257,6 +321,7 @@ footer {
         list-style: none;
         .nav-link {
           color: var(--clr-neutral-100);
+          display: flex;
         }
       }
     }
@@ -265,10 +330,42 @@ footer {
 
 /*icons */
 
+.icon {
+  display: inline-flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  svg {
+    background-color: red;
+
+    object-fit: cover !important; /* Ensures content fits while preserving aspect ratio */
+    path {
+      width: 100%;
+      height: var(--space-xs);
+    }
+  }
+}
+
 .plant {
 }
 
 @media (min-width: 600px) {
+  .image-grid {
+    img {
+      grid-column: 2 span;
+      &:nth-child(1) {
+        grid-column: 2 span;
+        grid-row: 2 span;
+        background-color: yellow;
+      }
+      &:nth-child(2),
+      &:nth-child(3) {
+        grid-column: 1 span;
+        height: 100%;
+      }
+    }
+  }
   .plant-cards .plant-card {
     grid-column: 6 span;
   }
@@ -305,6 +402,13 @@ footer {
 @media (min-width: 900px) {
   .plant-cards .plant-card {
     grid-column: 3 span;
+    > img {
+      aspect-ratio: 3/4;
+    }
+  }
+  .tags {
+    .tag {
+    }
   }
   footer {
     .wrapper {
