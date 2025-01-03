@@ -1,69 +1,74 @@
 function populateCards() {
-  console.log('jek');
   // Array of data for each list item
   const plants = [
     {
-      image: 'https://picsum.photos/seed/picsum/200/300',
+      image:
+        'https://images.unsplash.com/photo-1568584711271-6c929fb49b60?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzR8fGN1Y3VtYmVyfGVufDB8fDB8fHww',
       title: 'Gurka',
       description: 'A tropical plant that thrives in bright, indirect light.',
       tags: ['Blommor', 'Ätbart', 'Grönska'],
       author: {
-        name: 'Jane Doe',
+        name: 'Coolio',
         avatar: 'https://avatar.iran.liara.run/public/1',
-        date: '2024-12-18',
+        date: '2024-04-01',
       },
     },
     {
-      image: 'https://picsum.photos/seed/picsum/200/300',
+      image:
+        'https://images.unsplash.com/photo-1722960803957-0644aafcf97e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRvbWF0ZXxlbnwwfHwwfHx8MA%3D%3D',
       title: 'Tomat',
       description: 'Low-maintenance plant perfect for low light conditions.',
       tags: ['Solälskande', 'Lättodlat', 'Ätbart'],
       author: {
-        name: 'John Smith',
+        name: 'Anna Odlare',
         avatar: 'https://avatar.iran.liara.run/public/2',
-        date: '2024-12-17',
+        date: '2024-12-05',
       },
     },
     {
-      image: 'https://picsum.photos/seed/picsum/200/300',
+      image:
+        'https://images.unsplash.com/photo-1729257423933-63f12279e7da?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z2VyYW5pdW18ZW58MHx8MHx8fDA%3D',
       title: 'Pelargon',
       description: 'A popular houseplant known for its large, violin-shaped leaves.',
       tags: ['Dekorativ', 'Färgstark', 'Tålig', 'Blommor'],
       author: {
-        name: 'Alice Brown',
+        name: 'Blomsterkalle',
         avatar: 'https://avatar.iran.liara.run/public/3',
-        date: '2024-12-16',
+        date: '2024-12-03',
       },
     },
     {
-      image: 'https://picsum.photos/seed/picsum/200/300',
+      image:
+        'https://images.unsplash.com/photo-1691885784056-5eaf7e5199df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fEJhc2lsfGVufDB8fDB8fHww',
       title: 'Basilika',
       description: 'A popular houseplant known for its large, violin-shaped leaves.',
       tags: ['Kryddor', 'Doftande', 'Solälskande'],
       author: {
-        name: 'Alice Brown',
+        name: 'Krydd-malin',
         avatar: 'https://avatar.iran.liara.run/public/4',
         date: '2024-12-16',
       },
     },
     {
-      image: 'https://picsum.photos/seed/picsum/200/300',
+      image:
+        'https://plus.unsplash.com/premium_photo-1702403157932-9a93ac2404d3?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTd8fGljZWJlcmclMjBzYWxhZHxlbnwwfHwwfHx8MA%3D%3D',
       title: 'Sallad',
       description: 'A popular houseplant known for its large, violin-shaped leaves.',
       tags: ['Snabbväxande', 'Ätbart', 'Grönska'],
       author: {
-        name: 'Alice Brown',
+        name: 'Grönis',
         avatar: 'https://avatar.iran.liara.run/public/5',
         date: '2024-12-16',
       },
     },
     {
-      image: 'https://picsum.photos/seed/picsum/200/300',
+      image:
+        'https://images.unsplash.com/photo-1707007288081-931c5291429f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGZlcm58ZW58MHx8MHx8fDA%3D',
       title: 'Ormbunke',
       description: 'A popular houseplant known for its large, violin-shaped leaves.',
       tags: ['Luftfuktande', 'Grönska', 'Dekorativ'],
       author: {
-        name: 'Alice Brown',
+        name: 'Naturvännen',
         avatar: 'https://avatar.iran.liara.run/public/6',
         date: '2024-12-16',
       },
@@ -80,14 +85,14 @@ function populateCards() {
       li.classList.add('plant-card'); // Add a class to the <li>
 
       const figure = document.createElement('figure');
-
       const image = document.createElement('img');
       image.src = plant.image;
       image.style.width = '200px';
+      image.alt = plant.description.replace;
       figure.appendChild(image);
 
       // Title
-      const title = document.createElement('h3');
+      const title = document.createElement('h4');
       title.textContent = plant.title;
 
       // Description
@@ -97,7 +102,9 @@ function populateCards() {
       // Tags
       const tags = document.createElement('div');
       tags.classList.add('tags');
-      tags.innerHTML = plant.tags.map((tag) => `<span class="tag" data-tag="${tag}">${tag}</span>`).join(' ');
+      tags.innerHTML = plant.tags
+        .map((tag) => `<span class="tag" data-tag="${tag}">${tag}</span>`)
+        .join(' ');
 
       // Author Section
       const author = document.createElement('div');
@@ -112,6 +119,7 @@ function populateCards() {
 
       const authorName = document.createElement('span');
       authorName.textContent = plant.author.name;
+      authorName.classList.add('author-name');
 
       const authorDate = document.createElement('span');
       authorDate.textContent = ` ${plant.author.date}`;
@@ -172,3 +180,17 @@ function inlineAllSVGImages() {
 
 // Call the function to inline all SVG images
 inlineAllSVGImages();
+
+// Function to adjust main's padding-top based on header height
+function adjustMainPadding() {
+  const mainHeader = document.querySelector('.main-header');
+  const main = document.querySelector('main');
+  const headerHeight = mainHeader.offsetHeight; // Get height of the fixed header
+  main.style.paddingTop = `${headerHeight}px`; // Set padding-top on main
+}
+
+// Run the function after the DOM is fully loaded
+window.addEventListener('load', adjustMainPadding);
+
+// Also run it on window resize to handle dynamic changes
+window.addEventListener('resize', adjustMainPadding);

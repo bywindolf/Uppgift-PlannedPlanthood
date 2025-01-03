@@ -1,14 +1,17 @@
-@import '/css/reset.css';
-@import 'variables.css';
+@import 'reset.css'; /* Kevin Powell */
+@import 'variables.css'; /* Heavily inspired by Utopia.fyi and Kevin Powell */
 @import 'layout.css';
 @import 'typography.css';
 @import 'components.css';
 
-/* Theme */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+body {
+  font-family: var(--font-base);
+  background-color: var(--clr-accent-light-1);
+  color: var(--clr-primary-dark);
+}
 
 /* Utilities */
-.visually-hidden {
+/* .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
@@ -16,9 +19,9 @@
   position: absolute;
   white-space: nowrap;
   width: 1px;
-}
+} */
 
 /* Composition */
-.flow > * + * {
+/* .flow > * + * {
   margin-block-start: var(--flow-space, 1em);
-}
+} */

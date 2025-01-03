@@ -6,22 +6,22 @@
     <link rel="stylesheet" href="css/style.css" />
     <title>Planned Planthood</title>
   </head>
-  <body class="">
+  <body>
     <header class="main-header content-grid">
       <div class="wrapper">
-        <div class="logo">
-          <img src="assets/images/logo.svg" />
-          <span class="brand-name">Planned Planthood</span>
-        </div>
-        <nav>
-          <ul>
+        <a href="#" class="logo">
+          <img src="assets/images/logo.svg" alt="Planned Planthood logotype" />
+          <!-- H1, here, a heritage since Bootstrap, logic in some way. May not be best practice?-->
+          <h1 class="brand-name">Planned Planthood</h1>
+        </a>
+        <nav class="main-nav" aria-labelledby="toggle-menu">
+          <ul class="main-menu" for="toggle-menu" role="button">
             <li class="nav-item">
               <a href="#" class="nav-link">Hem</a>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">Historik</a>
             </li>
-
             <li class="nav-item">
               <a href="#" class="nav-link">Tips</a>
             </li>
@@ -30,6 +30,16 @@
             </li>
           </ul>
         </nav>
+        <label
+          for="toggle-menu"
+          class="toggle-menu-label"
+          tabindex="0"
+          role="button"
+          aria-label="Toggle menu"
+          aria-controls="main-nav"
+        >
+        </label>
+        <input type="checkbox" id="toggle-menu" class="toggle-menu-checkbox" aria-hidden="true" />
       </div>
     </header>
     <main class="content-grid">
@@ -37,19 +47,36 @@
         <h2>Uppskattade växter</h2>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique, corporis ipsum.</p>
         <div class="image-grid">
-          <img src="https://picsum.photos/seed/picsum/200/300" />
-          <img src="https://picsum.photos/seed/picsum/200/300" />
-          <img src="https://picsum.photos/seed/picsum/200/300" />
-          <img src="https://picsum.photos/seed/picsum/200/300" />
-          <img src="https://picsum.photos/seed/picsum/200/300" />
-          <img src="https://picsum.photos/seed/picsum/200/300" />
+          <img
+            src="https://images.unsplash.com/photo-1467306405171-b5acf5f96760?q=80&w=2973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Bild på en Maskros mot gräsfält i ofokus"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1501103369114-ffc7e1b7f872?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHJhc3BiZXJyeXxlbnwwfHwwfHx8MA%3D%3D"
+            alt="Bild på ett hallon"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1519336056116-bc0f1771dec8?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fGNhY3R1c3xlbnwwfHwwfHx8MA%3D%3D"
+            alt="Bild på en kaktus i kruka"
+          />
+          <img
+            src="https://images.unsplash.com/16/unsplash_525b54bcc32ba_1.JPG?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx2aXN1YWwtc2VhcmNofDF8fHxlbnwwfHx8fHw%3D"
+            alt="Bild på en vacker lila blomma med dagdroppar"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1416339411116-62e1226aacd8?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx2aXN1YWwtc2VhcmNofDF8fHxlbnwwfHx8fHw%3D"
+            alt="Bild på växter i glassfär"
+          />
+          <img
+            src="https://images.unsplash.com/37/ic1dX3kBQjGNaPQb8Xel_1920%20x%201280.jpg?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx2aXN1YWwtc2VhcmNofDF8fHxlbnwwfHx8fHw%3D"
+            alt="Bild på en fager blomma i färgen orange"
+          />
         </div>
       </section>
-
       <section class="newsletter full-width">
         <div class="wrapper">
           <div class="content">
-            <h2>Anmäl dig till vårt nyhetsbrev så du inte missar en utsådd!</h2>
+            <h3>Anmäl dig till vårt nyhetsbrev så du inte missar en utsådd!</h3>
             <form class="signup">
               <div class="input">
                 <input type="email" name="email" placeholder="email@domain.com" />
@@ -59,16 +86,14 @@
           </div>
           <div class="image">
             <!-- We will use function in scripts.js to inline our image.svg-->
-            <img src="assets/images/icon-seedling.svg" />
+            <img src="assets/images/icon-planting.svg" />
           </div>
         </div>
       </section>
-
       <section class="plants">
-        <!-- Childs of UL is genereated with JS -->
+        <!-- Childs (li) of UL is genererated with JS -->
         <ul class="plant-cards"></ul>
       </section>
-
       <section class="call-to-action full-width">
         <div class="wrapper">
           <div class="image">
@@ -76,11 +101,11 @@
             <img src="assets/images/icon-seedling.svg" />
           </div>
           <div class="content">
-            <h2>Våra tidigare odlingar</h2>
+            <h3>Våra tidigare odlingar</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ratione quia eos pariatur deserunt
-              veritatis. Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam
-              quaerat doloribus? Planterade plantor
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ratione quia eos
+              pariatur deserunt veritatis. Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum
+              eveniet nostrum, dolor distinctio nam quaerat doloribus? Planterade plantor
             </p>
             <a class="btn btn-primary" href="">Planterade plantor</a>
           </div>
@@ -95,14 +120,15 @@
             <span class="brand-name">Planned Planthood</span>
           </div>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque, veniam ducimus aut sint atque ullam alias
-            perspiciatis fuga. Consequuntur nesciunt ea corrupti aperiam fugit inventore ratione earum. Iure, eius
-            molestias?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque, veniam ducimus aut sint
+            atque ullam alias perspiciatis fuga. Consequuntur nesciunt ea corrupti aperiam fugit
+            inventore ratione earum. Iure, eius molestias?
           </p>
           <address>
             <ul>
               <li>
-                <span class="icon"><img src="/assets/images/icon-phone.svg" /></span>Telefon: 020-1234567
+                <span class="icon"><img src="/assets/images/icon-phone.svg" /></span
+                ><a href="tel:0201234567">Telefon: 020-1234567</a>
               </li>
               <li>
                 <span class="icon"><img src="/assets/images/icon-email.svg" /></span
@@ -130,5 +156,7 @@
       </div>
     </footer>
   </body>
+  <!-- Let's use JavaScript for not cluttering index.html with lots of code for cards, 
+   some logic for calculating .main-header height aswell as some code for outputting inline code for or use of SVG (<img src="file.svg") -->
   <script src="js/scripts.js"></script>
 </html>

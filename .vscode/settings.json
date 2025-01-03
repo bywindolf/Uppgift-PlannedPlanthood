@@ -17,7 +17,7 @@
   "prettier.trailingComma": "es5",   // Keep trailing commas where valid in ES5
   "prettier.tabWidth": 2,
   "prettier.semi": true,
-  "prettier.printWidth": 120,
+  "prettier.printWidth": 100,
   "liveSassCompile.settings.formats": [
     {
       "format": "expanded",

@@ -1,10 +1,4 @@
 .content-grid {
-  --padding-inline: 1rem;
-  --content-max-width: 900px;
-  --breakout-max-width: 1200px;
-
-  --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
-
   display: grid;
   grid-template-columns:
     [full-width-start] minmax(var(--padding-inline), 1fr)
@@ -12,17 +6,14 @@
     [content-end]
     minmax(var(--padding-inline), 1fr) [full-width-end];
 }
-
 .content-grid > :not(.breakout, .full-width),
 .full-width > :not(.breakout, .full-width) {
   grid-column: content;
 }
-
+/* Concept of .breakout not used in this assigment */
 .content-grid > .breakout {
   grid-column: breakout;
-  /* background-color: red; */
 }
-
 .content-grid > .full-width {
   grid-column: full-width;
   display: grid;

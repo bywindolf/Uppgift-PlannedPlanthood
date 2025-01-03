@@ -1,3 +1,6 @@
+/* Theme */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 /* Global/base */
 
 h1,
@@ -8,35 +11,26 @@ h5,
 h6 {
   line-height: 1;
 }
-
+h2,
+h3,
+h4 {
+  line-height: 1;
+}
 h2,
 h3 {
   font-weight: var(--fw-bold);
-  line-height: 1;
+  font-size: var(--fs-700);
 }
-
-h2 {
+h4 {
+  font-weight: var(--fw-semi-bold);
   font-size: var(--fs-600);
 }
-
-h3 {
-  font-size: var(--fs-500);
-  font-weight: var(--fw-semi-bold);
-}
-
 a {
   text-decoration: none;
   color: var(--clr-accent);
-
   &:hover,
   &:focus-visible {
     color: var(--clr-primary-light-1);
     text-decoration: underline;
   }
-}
-
-body {
-  font-family: var(--font-base);
-  background-color: var(--clr-accent-light-1);
-  color: var(--clr-primary-dark);
 }
